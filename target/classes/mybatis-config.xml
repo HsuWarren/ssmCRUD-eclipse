@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<configuration>
+	<!-- 全局配置 -->
+	<settings>
+	<!-- 设置驼峰命名规则为true -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<!-- 打印查询语句 -->
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+	</settings>
+	<typeAliases>
+		<package name="cn.hsu.crud.bean"/>
+	</typeAliases>
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<!-- 分页参数合理化，页码不可能出现负数和大于总页数 -->
+			<property name="reasonable" value="true"/>
+		</plugin>
+	</plugins>
+</configuration>
